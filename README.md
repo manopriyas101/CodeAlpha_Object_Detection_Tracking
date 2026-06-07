@@ -1,4 +1,4 @@
-# 🎯 Real-Time Object Detection & Tracking
+# Real-Time Object Detection & Tracking
 
 ![Python](https://img.shields.io/badge/Python-3.13-blue?style=flat-square&logo=python)
 ![YOLOv8](https://img.shields.io/badge/YOLOv8-Ultralytics-orange?style=flat-square)
@@ -9,13 +9,13 @@ A real-time computer vision system that detects, tracks, and monitors objects th
 
 ---
 
-## 📸 Demo
+## Demo
 
 > The system draws bounding boxes with unique tracking IDs, trails showing movement paths, and a live HUD dashboard — all in real time.
 
 ---
 
-## ✨ Features
+## Features
 
 | Feature | Description |
 |---|---|
@@ -30,7 +30,7 @@ A real-time computer vision system that detects, tracks, and monitors objects th
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Tool | Purpose |
 |---|---|
@@ -57,7 +57,7 @@ CodeAlpha_Object_Detection_Tracking/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Python 3.10 or higher
@@ -102,7 +102,7 @@ EMAIL_PASSWORD=xxxx xxxx xxxx xxxx
 EMAIL_RECEIVER=receiver@gmail.com
 ```
 
-> 💡 **How to get Gmail App Password:**
+>  **How to get Gmail App Password:**
 > 1. Enable 2-Step Verification → [myaccount.google.com/security](https://myaccount.google.com/security)
 > 2. Generate App Password → [myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords)
 > 3. Paste the 16-character password into `.env`
@@ -116,7 +116,7 @@ The YOLOv8 model (`yolov8n.pt`) downloads automatically on first run (~6 MB).
 
 ---
 
-## 🎮 Controls
+##  Controls
 
 | Key | Action |
 |---|---|
@@ -126,7 +126,7 @@ The YOLOv8 model (`yolov8n.pt`) downloads automatically on first run (~6 MB).
 
 ---
 
-## 📊 Live HUD Dashboard
+##  Live HUD Dashboard
 
 ```
 ┌──────────────────────┐
@@ -146,7 +146,7 @@ The YOLOv8 model (`yolov8n.pt`) downloads automatically on first run (~6 MB).
 
 ---
 
-## 📧 Email Alert
+##  Email Alert
 
 When a target object is detected, an email is automatically sent with:
 
@@ -164,7 +164,7 @@ Total crossings : 3
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
 Customize behaviour inside `main.py`:
 
@@ -184,7 +184,7 @@ classes = [0]                # 0=person, 2=car, 39=bottle
 
 ---
 
-## 🔮 Roadmap
+## Roadmap
 
 - [x] Real-time detection with YOLOv8
 - [x] Multi-object tracking with ByteTrack
@@ -201,7 +201,7 @@ classes = [0]                # 0=person, 2=car, 39=bottle
 
 ---
 
-## 🙏 Acknowledgements
+##  Acknowledgements
 
 - [Ultralytics YOLOv8](https://github.com/ultralytics/ultralytics) — object detection model
 - [OpenCV](https://opencv.org/) — computer vision library
@@ -209,7 +209,7 @@ classes = [0]                # 0=person, 2=car, 39=bottle
 
 ---
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License — feel free to use, modify, and distribute.
 
