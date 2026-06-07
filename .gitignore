@@ -1,4 +1,4 @@
 venv/
 .env
 snapshot.jpg
-*.pt
+*.ptgit status

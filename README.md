@@ -1,191 +1,224 @@
-# 🎯 Real-Time Object Detection & Tracking
+# Real-Time Object Detection & Tracking
 
-A real-time computer vision system built with **YOLOv8** and **OpenCV** that detects, tracks, and monitors objects through a webcam feed — with a live HUD dashboard, line crossing counter, and email alert system.
+![Python](https://img.shields.io/badge/Python-3.13-blue?style=flat-square&logo=python)
+![YOLOv8](https://img.shields.io/badge/YOLOv8-Ultralytics-orange?style=flat-square)
+![OpenCV](https://img.shields.io/badge/OpenCV-4.13-green?style=flat-square&logo=opencv)
+![License](https://img.shields.io/badge/License-MIT-purple?style=flat-square)
 
----
-
-## 📸 Demo
-
-> Point your webcam at any scene — the system instantly detects and tracks people and objects with unique IDs.
-
-![Demo](snapshot.jpg)
+A real-time computer vision system that detects, tracks, and monitors objects through a live webcam feed — built with **YOLOv8** and **OpenCV**. Features a professional HUD overlay, line crossing counter, sound alerts, and automated email notifications with snapshot attachments.
 
 ---
 
-## ✨ Features
+## Demo
+
+> The system draws bounding boxes with unique tracking IDs, trails showing movement paths, and a live HUD dashboard — all in real time.
+
+---
+
+## Features
 
 | Feature | Description |
 |---|---|
-| 🔍 **Object Detection** | YOLOv8 detects 80+ object classes in real time |
-| 🎯 **Object Tracking** | ByteTrack assigns unique IDs to each object |
-| 📊 **Live HUD Dashboard** | FPS counter, object count, class breakdown, timestamp |
-| 📏 **Line Crossing Counter** | Counts every object that crosses a virtual line |
-| 🔔 **Smart Alert System** | Beep sound + red flash when target object detected |
-| 📧 **Email Alerts** | Sends email with snapshot photo when alert triggers |
-| 🔒 **Secure Credentials** | Passwords stored in `.env` file, never in source code |
+| 🔍 **Real-Time Detection** | YOLOv8 nano model detects 80+ object classes instantly |
+| 🎯 **Multi-Object Tracking** | ByteTrack assigns persistent unique IDs across frames |
+| 🟢 **Motion Trails** | Tracks movement path of each object over time |
+| 📊 **Live HUD Dashboard** | FPS, total count, class breakdown, alert status, clock |
+| 📏 **Line Crossing Counter** | Virtual tripwire counts every object crossing the line |
+| 🔔 **Sound Alert** | Double beep triggers when target object is detected |
+| 📧 **Email Alert** | Sends email with snapshot photo attached automatically |
+| 🔒 **Secure Credentials** | All secrets stored in `.env` — never exposed in code |
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
-- **Python 3.13**
-- **YOLOv8** (Ultralytics)
-- **OpenCV** (cv2)
-- **PyTorch**
-- **python-dotenv**
+| Tool | Purpose |
+|---|---|
+| Python 3.13 | Core language |
+| YOLOv8 (Ultralytics) | Object detection model |
+| OpenCV (cv2) | Video capture and frame processing |
+| PyTorch | Deep learning backend |
+| ByteTrack | Multi-object tracking algorithm |
+| python-dotenv | Secure environment variable management |
 
 ---
 
 ## 📁 Project Structure
 
 ```
-object-detection-tracking/
-├── main.py              # Main detection + tracking script
-├── .env.example         # Environment variable template
-├── .gitignore           # Excludes .env, venv, model files
-├── requirements.txt     # All dependencies
-└── README.md            # This file
+CodeAlpha_Object_Detection_Tracking/
+├── main.py              ← Main detection + tracking script
+├── .env.example         ← Environment variable template (safe to share)
+├── .env                 ← Your credentials (never uploaded to GitHub)
+├── .gitignore           ← Excludes .env, venv, model files
+├── requirements.txt     ← All Python dependencies
+└── README.md            ← Project documentation
 ```
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
-### 1 — Clone the repo
+### Prerequisites
+- Python 3.10 or higher
+- Webcam connected
+- Gmail account with App Password (for email alerts)
+
+### Installation
+
+**1 — Clone the repository**
 ```bash
-git clone https://github.com/YourUsername/object-detection-tracking.git
-cd object-detection-tracking
+git clone https://github.com/manopriyasrinivasan38/CodeAlpha_Object_Detection_Tracking.git
+cd CodeAlpha_Object_Detection_Tracking
 ```
 
-### 2 — Create virtual environment
+**2 — Create and activate virtual environment**
 ```bash
+# Create
 python -m venv venv
 
-# Windows
+# Activate (Windows)
 venv\Scripts\activate
 
-# Mac/Linux
+# Activate (Mac/Linux)
 source venv/bin/activate
 ```
 
-### 3 — Install dependencies
+**3 — Install all dependencies**
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4 — Set up environment variables
+**4 — Configure environment variables**
 ```bash
-# Copy the example file
+# Copy the template
 cp .env.example .env
-
-# Edit .env and fill in your Gmail credentials
 ```
 
-Inside `.env`:
-```
+Open `.env` and fill in your details:
+```env
 EMAIL_SENDER=your_gmail@gmail.com
-EMAIL_PASSWORD=your_16_char_app_password
+EMAIL_PASSWORD=xxxx xxxx xxxx xxxx
 EMAIL_RECEIVER=receiver@gmail.com
 ```
 
-> 📌 **Gmail App Password setup:**
-> 1. Enable 2-Step Verification at [myaccount.google.com/security](https://myaccount.google.com/security)
-> 2. Generate App Password at [myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords)
+>  **How to get Gmail App Password:**
+> 1. Enable 2-Step Verification → [myaccount.google.com/security](https://myaccount.google.com/security)
+> 2. Generate App Password → [myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords)
 > 3. Paste the 16-character password into `.env`
 
-### 5 — Run
+**5 — Run the project**
 ```bash
 python main.py
 ```
 
+The YOLOv8 model (`yolov8n.pt`) downloads automatically on first run (~6 MB).
+
 ---
 
-## 🎮 Controls
+##  Controls
 
 | Key | Action |
 |---|---|
-| `Q` | Quit (click webcam window first) |
-| `R` | Reset line crossing counter |
+| `Q` | Quit — click webcam window first, then press Q |
+| `R` | Reset line crossing counter to zero |
+| `Ctrl+C` | Force stop from terminal |
 
 ---
 
-## 📊 HUD Dashboard
+##  Live HUD Dashboard
 
 ```
-┌─────────────────────┐
-│  DETECTION HUD      │
-├─────────────────────┤
-│  FPS     : 24.1     │  ← green/orange/red
-│  TOTAL   : 2        │
-│  CROSSED : 5        │  ← line crossing count
-│  ALERT   : ON 🔴    │  ← active when detected
-│  NEXT EMAIL: 28s    │  ← email cooldown timer
-├─────────────────────┤
-│  ● person    : 2    │
-│                     │
-│  20:15:32           │
-└─────────────────────┘
+┌──────────────────────┐
+│   DETECTION HUD      │
+├──────────────────────┤
+│  FPS     : 24.1      │  ← Green (20+) Orange (10-20) Red (<10)
+│  TOTAL   : 2         │  ← Objects currently on screen
+│  CROSSED : 5         │  ← Line crossing count
+│  ALERT   : ON  🔴    │  ← Active when target detected
+│  NEXT EMAIL: 28s     │  ← Cooldown timer between emails
+├──────────────────────┤
+│  ● person    : 2     │  ← Per-class breakdown
+│                      │
+│  20:15:32            │  ← Live timestamp
+└──────────────────────┘
 ```
 
 ---
 
-## 📧 Email Alert Sample
+##  Email Alert
+
+When a target object is detected, an email is automatically sent with:
 
 ```
 Subject: 🔔 ALERT: person detected at 20:15:32
 
 ⚠️ Security Alert!
+
 Object detected : person
 Time            : 2026-06-07 20:15:32
 Total crossings : 3
 
-[snapshot.jpg attached]
+📎 snapshot.jpg (attached)
 ```
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
-Inside `main.py` you can customize:
+Customize behaviour inside `main.py`:
 
 ```python
-ALERT_OBJECT   = "person"   # Change to "car", "bottle" etc
-ALERT_COOLDOWN = 30         # Seconds between email alerts
-```
+# Change what triggers the alert
+ALERT_OBJECT   = "person"    # Options: "car", "bottle", "cat" etc.
 
-To detect specific classes only:
-```python
-# Detect only persons (class 0)
-results = model.track(frame, persist=True, classes=[0], conf=0.5)
+# Time between email alerts (prevents spam)
+ALERT_COOLDOWN = 30          # seconds
 
-# Detect persons + cars (class 0 + 2)
-results = model.track(frame, persist=True, classes=[0, 2], conf=0.5)
+# Detection confidence threshold
+conf = 0.5                   # 0.0 to 1.0
+
+# Detect specific classes only
+classes = [0]                # 0=person, 2=car, 39=bottle
 ```
 
 ---
 
-## 🔮 Future Improvements
+## Roadmap
 
-- [ ] Web browser dashboard (Flask streaming)
+- [x] Real-time detection with YOLOv8
+- [x] Multi-object tracking with ByteTrack
+- [x] Motion trails per tracked object
+- [x] Live HUD dashboard overlay
+- [x] Line crossing counter
+- [x] Sound + email alert system
+- [x] Secure credential management with dotenv
+- [ ] Web browser dashboard with Flask
 - [ ] Speed estimation in km/h
-- [ ] Privacy blur filter for faces
+- [ ] Privacy blur filter for detected faces
+- [ ] Save detection logs to database
 - [ ] Multi-camera support
-- [ ] Database logging with timestamps
 
 ---
 
-## 🙏 Credits
+##  Acknowledgements
 
-- [Ultralytics YOLOv8](https://github.com/ultralytics/ultralytics)
-- [OpenCV](https://opencv.org/)
-- [ByteTrack](https://github.com/ifzhang/ByteTrack)
-
----
-
-## 📄 License
-
-MIT License — feel free to use and modify for your own projects.
+- [Ultralytics YOLOv8](https://github.com/ultralytics/ultralytics) — object detection model
+- [OpenCV](https://opencv.org/) — computer vision library
+- [ByteTrack](https://github.com/ifzhang/ByteTrack) — multi-object tracking
 
 ---
 
-> Built  by Manopriya Srinivasan
+##  License
+
+This project is licensed under the MIT License — feel free to use, modify, and distribute.
+
+---
+
+<div align="center">
+
+**Built Manopriya Srinivasan**
+
+⭐ Star this repo if you found it helpful!
+
+</div>
